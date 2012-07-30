@@ -58,7 +58,7 @@
 		}
 
 		// Open the file
-		if(noErr != (error = ExtAudioFileOpenURL((__bridge CFURLRef)url, &fileHandle)))
+		if(noErr != (error = ExtAudioFileOpenURL(( CFURLRef)url, &fileHandle)))
 		{
 			REPORT_EXTAUDIO_CALL(error, @"Could not open url %@", url);
 			goto done;
@@ -105,7 +105,7 @@
 			// Don't allow more than 2 channels (stereo)
 			OAL_LOG_WARNING(@"Audio stream in %@ contains %d channels. Capping at 2",
 							url,
-							streamDescription.mChannelsPerFrame);
+							(int)streamDescription.mChannelsPerFrame);
 			streamDescription.mChannelsPerFrame = 2;
 		}
 
@@ -215,7 +215,7 @@
 		if(nil == streamData)
 		{
 			OAL_LOG_ERROR(@"Could not allocate %d bytes for audio buffer from file (url = %@)",
-						  streamSizeInBytes,
+						  (int)streamSizeInBytes,
 						  url);
 			goto onFail;
 		}
