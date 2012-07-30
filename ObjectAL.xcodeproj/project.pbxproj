@@ -180,6 +180,7 @@
 		398C1822147D5560000EFEDF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 398C1821147D5560000EFEDF /* AppDelegate.m */; };
 		398C1825147D5560000EFEDF /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398C1824147D5560000EFEDF /* RootViewController.m */; };
 		398C1828147D5560000EFEDF /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 398C1827147D5560000EFEDF /* MainScene.m */; };
+		39C48DF8151657D700BC57ED /* OALAction+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C48DF6151657D600BC57ED /* OALAction+Private.h */; };
 		39F89E9F14831C3500E40CFE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F89E9E14831C3500E40CFE /* libz.dylib */; };
 /* End PBXBuildFile section */
 
@@ -531,6 +532,7 @@
 		398C1826147D5560000EFEDF /* MainScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.objj.h; path = MainScene.h; sourceTree = "<group>"; };
 		398C1827147D5560000EFEDF /* MainScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
 		398C1829147D5560000EFEDF /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.objj.h; path = GameConfig.h; sourceTree = "<group>"; };
+		39C48DF6151657D600BC57ED /* OALAction+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OALAction+Private.h"; sourceTree = "<group>"; };
 		39F89E9E14831C3500E40CFE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -836,6 +838,7 @@
 			children = (
 				3914D8C1147D58F00010C4A2 /* OALAction.h */,
 				3914D8C2147D58F00010C4A2 /* OALAction.m */,
+				39C48DF6151657D600BC57ED /* OALAction+Private.h */,
 				3914D8C3147D58F00010C4A2 /* OALActionManager.h */,
 				3914D8C4147D58F00010C4A2 /* OALActionManager.m */,
 				3914D8C5147D58F00010C4A2 /* OALAudioActions.h */,
@@ -1154,6 +1157,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C48DF8151657D700BC57ED /* OALAction+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1481,15 +1485,12 @@
 		390E993F1482C4BE002E14E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				DSTROOT = /tmp/ObjectAL.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1512,7 +1513,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1521,15 +1521,12 @@
 		390E99401482C4BE002E14E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				DSTROOT = /tmp/ObjectAL.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1552,7 +1549,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1594,10 +1590,7 @@
 		3914D757147D57540010C4A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				CLANG_ENABLE_OBJC_ARC = NO;
 				DSTROOT = /tmp/cocos2d.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1613,10 +1606,7 @@
 		3914D758147D57540010C4A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				CLANG_ENABLE_OBJC_ARC = NO;
 				DSTROOT = /tmp/cocos2d.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1633,7 +1623,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1656,7 +1649,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1673,10 +1669,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1690,8 +1683,6 @@
 					DEBUG,
 					"COCOS2D_DEBUG=1",
 				);
-				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = ObjectALDemo/Resources/Info.plist;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1703,10 +1694,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1716,8 +1704,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ObjectALDemo/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
-				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = ObjectALDemo/Resources/Info.plist;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";

@@ -38,6 +38,7 @@
 #pragma mark -
 #pragma mark Private Methods
 
+/** \cond */
 /**
  * (INTERNAL USE) Private methods for ALContext.
  */
@@ -48,9 +49,20 @@
 - (void) setSuspended:(bool) value;
 
 @end
+/** \endcond */
 
+
+@interface ALContext ()
+@property(nonatomic, readwrite, retain) ALDevice *device;
+
+@end
 
 @implementation ALContext
+@synthesize device;
+@synthesize sources;
+@synthesize listener;
+@synthesize context;
+@synthesize attributes;
 
 #pragma mark Object Management
 
@@ -232,11 +244,6 @@
 	return [ALWrapper getString:AL_VERSION];
 }
 
-@synthesize attributes;
-
-@synthesize context;
-
-@synthesize device;
 
 - (ALenum) distanceModel
 {
@@ -287,14 +294,15 @@
 	return [ALWrapper getSpaceSeparatedStringList:AL_EXTENSIONS];
 }
 
-@synthesize listener;
+
 
 - (NSString*) renderer
 {
 	return [ALWrapper getString:AL_RENDERER];
 }
 
-@synthesize sources;
+
+
 
 - (float) speedOfSound
 {
