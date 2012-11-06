@@ -35,7 +35,10 @@
 
 @end
 
-#define FIX_CATEGORY_BUG(name) @interface FIX_CATEGORY_BUG_##name @end @implementation FIX_CATEGORY_BUG_##name @end
+#define FIX_CATEGORY_BUG(name) @interface FIX_CATEGORY_BUG_##name : NSObject\
+                               @end\
+                               @implementation FIX_CATEGORY_BUG_##name\
+                               @end
 
 
 FIX_CATEGORY_BUG(NSMutableArray_WeakReferences);
