@@ -540,7 +540,7 @@
 	{
 		if(preloaded)
 		{
-			NSError* error;
+			NSError* error = nil;
 			arcsafe_release(player);
 			player = [[AVAudioPlayer alloc] initWithContentsOfURL:currentlyLoadedUrl error:&error];
 			if(nil != error)
@@ -646,7 +646,7 @@
 			[[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotification:) withObject:[NSNotification notificationWithName:OALAudioTrackStoppedPlayingNotification object:self] waitUntilDone:NO];
 		}
 		
-		NSError* error;
+		NSError* error = nil;
 		player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
 		if(nil != error)
 		{

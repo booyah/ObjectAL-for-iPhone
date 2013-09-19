@@ -149,7 +149,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALAudioSession);
 {
 	OAL_LOG_DEBUG(@"%@: Dealloc", self);
 
-    NSError* error;
+    NSError* error = nil;
     if(![[AVAudioSession sharedInstance] setActive:NO error:&error])
     {
         OAL_LOG_ERROR(@"Could not deactivate audio session: %@", error);
@@ -364,7 +364,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALAudioSession);
 
 - (void) setAudioCategory:(NSString*) audioCategory
 {
-	NSError* error;
+	NSError* error = nil;
 	if(![[AVAudioSession sharedInstance] setCategory:audioCategory error:&error])
 	{
 		OAL_LOG_ERROR(@"Failed to set audio category: %@", error);
@@ -489,7 +489,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALAudioSession);
  */ 
 - (void) activateAudioSession
 {
-	NSError* error;
+	NSError* error = nil;
 	for(int try = 1; try <= kMaxSessionActivationRetries; try++)
 	{
 		if([[AVAudioSession sharedInstance] setActive:YES error:&error])
@@ -518,7 +518,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALAudioSession);
 			else
 			{
 				OAL_LOG_DEBUG(@"Deactivate audio session");
-				NSError* error;
+				NSError* error = nil;
 				if(![[AVAudioSession sharedInstance] setActive:NO error:&error])
 				{
 					OAL_LOG_ERROR(@"Could not deactivate audio session: %@", error);
